@@ -1,0 +1,28 @@
+
+<table>
+  <thead>
+<h2>Resumo financeiro</h2>
+<p>Receitas: {{ totalReceitas | currency:'BRL' }}</p>
+<p>Despesas: {{ totalDespesas | currency:'BRL' }}</p>
+<p><strong>Saldo: {{ saldo | currency:'BRL' }}</strong></p>
+
+<h2 class="titulo_tabela">Lista de Movimentações Financeiras</h2>
+
+    <tr>
+      <th>Tipo</th>
+      <th>Categoria</th>
+      <th>Descrição</th>
+      <th>Data</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let mov of movimentacoes">
+      <td>{{ mov.tipo }}</td>
+      <td>{{ mov.categoria }}</td>
+      <td>{{ mov.descricao }}</td>
+      <td>{{ mov.data | date: 'shortDate' }}</td>
+      <td>{{ mov.valor | currency: 'BRL' }}</td>
+    </tr>
+  </tbody>
+</table>
